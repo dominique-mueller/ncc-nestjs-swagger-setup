@@ -1,5 +1,5 @@
 import { Controller, Get } from "@nestjs/common";
-import { ApiUseTags, ApiOperation, ApiOkResponse } from "@nestjs/swagger";
+import { ApiOperation, ApiOkResponse, ApiTags } from "@nestjs/swagger";
 
 import { HelloWorldService } from "./hello-world.service";
 import { HelloWorldDTO } from "./hello-world.dto";
@@ -7,7 +7,7 @@ import { HelloWorldDTO } from "./hello-world.dto";
 /**
  * Hello World Controller
  */
-@ApiUseTags("API")
+@ApiTags("API")
 @Controller("/api")
 export class HelloWorldController {
   /**
@@ -21,7 +21,7 @@ export class HelloWorldController {
    * Get "Hello World"
    */
   @ApiOperation({
-    title: "Get a hello world message"
+    summary: "Get a hello world message"
   })
   @ApiOkResponse({
     description: "Hello world message",
