@@ -6,12 +6,8 @@ import { HelloWorldService } from './hello-world.service';
 /**
  * Hello World Module
  */
-@Module( {
-  controllers: [
-    HelloWorldController
-  ],
-  providers: [
-    HelloWorldService
-  ],
-} )
-export class HelloWorldModule { }
+@Module({
+  controllers: [HelloWorldController],
+  providers: [HelloWorldService],
+})
+export class HelloWorldModule {}

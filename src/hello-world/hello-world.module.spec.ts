@@ -5,28 +5,18 @@ import { HelloWorldModule } from './hello-world.module';
 /**
  * Hello World Module - Unit Test
  */
-describe( 'Hello World Module', () => {
-
+describe('Hello World Module', () => {
   let helloWorldModule: HelloWorldModule;
 
-  beforeEach( async () => {
+  beforeEach(async () => {
+    const testingModule: TestingModule = await Test.createTestingModule({
+      imports: [HelloWorldModule],
+    }).compile();
 
-    const testingModule: TestingModule = await Test
-      .createTestingModule( {
-        imports: [
-          HelloWorldModule
-        ]
-      } )
-      .compile();
+    helloWorldModule = testingModule.get(HelloWorldModule);
+  });
 
-    helloWorldModule = testingModule.get( HelloWorldModule );
-
-  } );
-
-  it( 'should instantiate', () => {
-
-    expect( helloWorldModule ).toBeDefined();
-
-  } );
-
-} );
+  it('should instantiate', () => {
+    expect(helloWorldModule).toBeDefined();
+  });
+});

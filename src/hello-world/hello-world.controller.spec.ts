@@ -6,50 +6,38 @@ import { HelloWorldService } from './hello-world.service';
 /**
  * Hello World Controller - Unit Test
  */
-describe( 'Hello World Controller', () => {
-
+describe('Hello World Controller', () => {
   let helloWorldController: HelloWorldController;
   let helloWorldService: HelloWorldService;
 
-  beforeEach( async () => {
+  beforeEach(async () => {
+    const testingModule: TestingModule = await Test.createTestingModule({
+      controllers: [HelloWorldController],
+      providers: [
+        {
+          provide: HelloWorldService,
+          useValue: {
+            getHello: () => {},
+          },
+        },
+      ],
+    }).compile();
 
-    const testingModule: TestingModule = await Test
-      .createTestingModule( {
-        controllers: [
-          HelloWorldController
-        ],
-        providers: [
-          {
-            provide: HelloWorldService,
-            useValue: {
-              getHello: () => { }
-            }
-          }
-        ],
-      } )
-      .compile();
+    helloWorldController = testingModule.get(HelloWorldController);
+    helloWorldService = testingModule.get(HelloWorldService);
+  });
 
-    helloWorldController = testingModule.get( HelloWorldController );
-    helloWorldService = testingModule.get( HelloWorldService );
+  it('should instantiate', () => {
+    expect(helloWorldController).toBeDefined();
+  });
 
-  } );
+  it('should return "Hello World!"', () => {
+    spyOn(helloWorldService, 'getHello').and.returnValue('Hello World!');
 
-  it( 'should instantiate', () => {
+    const hello = helloWorldController.getHello();
 
-    expect( helloWorldController ).toBeDefined();
-
-  } );
-
-  it( 'should return "Hello World!"', () => {
-
-    spyOn( helloWorldService, 'getHello' ).and.returnValue( 'Hello World!' );
-
-    const hello: string = helloWorldController.getHello();
-
-    expect( hello ).toEqual( {
-      message: 'Hello World!'
-    } );
-
-  } );
-
-} );
+    expect(hello).toEqual({
+      message: 'Hello World!',
+    });
+  });
+});
