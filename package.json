@@ -26,7 +26,7 @@
     "@types/jest": "25.1.x",
     "@types/node": "13.9.x",
     "@types/supertest": "2.0.x",
-    "@zeit/ncc": "0.20.x",
+    "@zeit/ncc": "0.22.x",
     "concurrently": "5.1.x",
     "jest": "25.2.x",
     "supertest": "4.0.x",
