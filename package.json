@@ -1,0 +1,36 @@
+{
+  "name": "node-nestjs-typescript-starter",
+  "version": "1.0.0",
+  "description": "Starter for NestJS projects using TypeScript",
+  "license": "MIT",
+  "scripts": {
+    "build": "rimraf build && ncc build src/main.ts --out ./build --minify",
+    "start": "rimraf build && concurrently --names \"BUILD,APP\" \"ncc build src/main.ts --out ./build --watch --quiet\" \"wait-on build/index.js && supervisor --watch build/index.js --quiet build/index.js\"",
+    "start:prod": "node build/index.js",
+    "test": "jest --config jest.config.json",
+    "test:watch": "jest --config jest.config.json --watch"
+  },
+  "dependencies": {
+    "@nestjs/common": "6.5.x",
+    "@nestjs/core": "6.5.x",
+    "@nestjs/platform-express": "6.5.x",
+    "reflect-metadata": "0.1.x",
+    "rxjs": "6.5.x"
+  },
+  "devDependencies": {
+    "@nestjs/testing": "6.5.x",
+    "@types/express": "4.17.x",
+    "@types/jest": "24.0.x",
+    "@types/node": "12.6.x",
+    "@types/supertest": "2.0.x",
+    "@zeit/ncc": "0.20.x",
+    "concurrently": "4.1.x",
+    "jest": "24.8.x",
+    "supertest": "4.0.x",
+    "supervisor": "0.12.x",
+    "ts-jest": "24.0.x",
+    "ts-node": "8.3.x",
+    "typescript": "3.5.x",
+    "wait-on": "3.3.x"
+  }
+}

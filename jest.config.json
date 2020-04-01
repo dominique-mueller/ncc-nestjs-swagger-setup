@@ -1,0 +1,16 @@
+{
+  "collectCoverage": true,
+  "coverageDirectory": "../coverage",
+  "moduleFileExtensions": [
+    "js",
+    "json",
+    "ts"
+  ],
+  "rootDir": "src",
+  "testRegex": "\\.(e2e-)?spec\\.ts$",
+  "testEnvironment": "node",
+  "transform": {
+    "^.+\\.(t|j)s$": "ts-jest"
+  },
+  "verbose": true
+}
