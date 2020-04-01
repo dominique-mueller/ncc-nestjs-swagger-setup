@@ -1,29 +1,36 @@
-import { Controller, Get } from '@nestjs/common';
-import { HelloWorldService } from './hello-world.service';
+import { Controller, Get } from "@nestjs/common";
+import { ApiUseTags, ApiOperation, ApiOkResponse } from "@nestjs/swagger";
+
+import { HelloWorldService } from "./hello-world.service";
+import { HelloWorldDTO } from "./hello-world.dto";
 
 /**
  * Hello World Controller
  */
-@Controller('/api')
+@ApiUseTags("API")
+@Controller("/api")
 export class HelloWorldController {
-
   /**
    * Constructor
    *
    * @param helloWorldService Hello World Service
    */
-  constructor(
-    private readonly helloWorldService: HelloWorldService
-  ) { }
+  constructor(private readonly helloWorldService: HelloWorldService) {}
 
   /**
    * Get "Hello World"
    */
-  @Get('/hello-world')
-  getHello(): any {
+  @ApiOperation({
+    title: "Get a hello world message"
+  })
+  @ApiOkResponse({
+    description: "Hello world message",
+    type: HelloWorldDTO
+  })
+  @Get("/hello-world")
+  getHello(): HelloWorldDTO {
     return {
       message: this.helloWorldService.getHello()
     };
   }
-
 }

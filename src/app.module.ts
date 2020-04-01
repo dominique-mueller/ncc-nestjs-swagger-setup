@@ -1,13 +1,11 @@
-import { Module } from '@nestjs/common';
+import { Module } from "@nestjs/common";
 
-import { HelloWorldModule } from './hello-world/hello-world.module';
+import { HelloWorldModule } from "./hello-world/hello-world.module";
 
 /**
  * App Module
  */
-@Module( {
-  imports: [
-    HelloWorldModule
-  ]
-} )
-export class AppModule { }
+@Module({
+  imports: [HelloWorldModule]
+})
+export class AppModule {}
