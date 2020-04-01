@@ -1,11 +1,11 @@
-import { ApiProperty } from "@nestjs/swagger";
+import { ApiProperty } from '@nestjs/swagger';
 
 /**
  * Hello World DTO
  */
 export class HelloWorldDTO {
   @ApiProperty({
-    description: "Hello world message"
+    description: 'Hello world message',
   })
   message: string;
 }

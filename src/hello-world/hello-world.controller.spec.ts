@@ -1,12 +1,12 @@
-import { Test, TestingModule } from "@nestjs/testing";
+import { Test, TestingModule } from '@nestjs/testing';
 
-import { HelloWorldController } from "./hello-world.controller";
-import { HelloWorldService } from "./hello-world.service";
+import { HelloWorldController } from './hello-world.controller';
+import { HelloWorldService } from './hello-world.service';
 
 /**
  * Hello World Controller - Unit Test
  */
-describe("Hello World Controller", () => {
+describe('Hello World Controller', () => {
   let helloWorldController: HelloWorldController;
   let helloWorldService: HelloWorldService;
 
@@ -17,27 +17,27 @@ describe("Hello World Controller", () => {
         {
           provide: HelloWorldService,
           useValue: {
-            getHello: () => {}
-          }
-        }
-      ]
+            getHello: () => {},
+          },
+        },
+      ],
     }).compile();
 
     helloWorldController = testingModule.get(HelloWorldController);
     helloWorldService = testingModule.get(HelloWorldService);
   });
 
-  it("should instantiate", () => {
+  it('should instantiate', () => {
     expect(helloWorldController).toBeDefined();
   });
 
   it('should return "Hello World!"', () => {
-    spyOn(helloWorldService, "getHello").and.returnValue("Hello World!");
+    spyOn(helloWorldService, 'getHello').and.returnValue('Hello World!');
 
     const hello = helloWorldController.getHello();
 
     expect(hello).toEqual({
-      message: "Hello World!"
+      message: 'Hello World!',
     });
   });
 });
