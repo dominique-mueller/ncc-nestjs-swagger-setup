@@ -1,9 +1,8 @@
 <div align="center">
 
-# ncc-nestjs-swagger-experiment
+# ncc-nestjs-swagger-setup
 
-**Using [ncc](https://github.com/zeit/ncc) to build a [NestJS](https://github.com/nestjs/nest) application that uses
-[Swagger](https://github.com/nestjs/swagger)
+**Setup for a [NestJS](https://github.com/nestjs/nest) application that uses [Swagger](https://github.com/nestjs/swagger), built with [ncc](https://github.com/vercel/ncc)
 <br>
 (based on my [Node NestJS TypeScript Starter](https://github.com/dominique-mueller/node-nestjs-typescript-starter) project)**
 
@@ -79,12 +78,13 @@ Now, Swagger is ready and running at **[http://localhost:3000/swagger](http://lo
 
 The following commands are available:
 
-| Command              | Description                                        | CI                 |
-| -------------------- | -------------------------------------------------- | ------------------ |
-| `npm start`          | Creates a development build, running in watch mode |                    |
-| `npm run build`      | Creates a production build                         | :heavy_check_mark: |
-| `npm run test`       | Executes all unit tests                            | :heavy_check_mark: |
-| `npm run test:watch` | Executes all unit tests, running in watch mode     |                    |
+| Command               | Description                                        | CI                 |
+| --------------------- | -------------------------------------------------- | ------------------ |
+| `npm start`           | Creates a development build, running in watch mode |                    |
+| `npm run build`       | Creates a production build                         | :heavy_check_mark: |
+| `npm run start:build` | Runs a production build                            |                    |
+| `npm run test`        | Executes all unit tests                            | :heavy_check_mark: |
+| `npm run test:watch`  | Executes all unit tests, running in watch mode     |                    |
 
 > Note that linters are not part of this template, you might want to add and configure them yourself!
 
